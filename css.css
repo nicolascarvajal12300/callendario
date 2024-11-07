@@ -1,0 +1,206 @@
+/* Estilos generales para la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Ajustes para los controles del calendario */
+#calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Estilo de los botones */
+button {
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #014421;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    flex: 1; /* Se asegura que los botones ocupen el mismo espacio */
+}
+
+button:hover {
+    background-color: #014421;
+}
+
+/* Estilos para el calendario */
+#calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+    margin-top: 20px;
+}
+
+.calendar-day {
+    padding: 15px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background-color: #e0e0e0;
+}
+
+.selected {
+    background-color: #014421;
+    color: white;
+}
+
+.has-case {
+    position: relative;
+}
+
+.has-case::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+/* Estilo para el listado de casos */
+#case-list {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.case-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.case-item span {
+    font-size: 14px;
+    color: #333;
+    flex-grow: 1;
+}
+
+.case-item button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.case-item button:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para el formulario de agregar caso */
+.case-form {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.case-form input, .case-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.case-form button {
+    background-color: #014421;
+    color: white;
+}
+
+.case-form button:hover {
+    background-color: #014421;
+}
+
+button#cancel-case {
+    background-color: #dc3545;
+}
+
+button#cancel-case:hover {
+    background-color: #c82333;
+}
+
+#add-case-btn {
+    margin-top: 20px;
+    background-color: #014421;
+    color: white;
+}
+
+#add-case-btn:hover {
+    background-color: #014421;
+}
+
+#calendar-body {
+    overflow-y: auto;
+    max-height: 350px;
+}
+
+/* Media queries para dispositivos pequeños */
+
+/* En pantallas de móviles, ajustamos la visualización */
+@media (max-width: 600px) {
+    #calendar-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    button {
+        width: 100%; /* Hacer que los botones ocupen todo el ancho */
+        margin: 5px 0;
+    }
+    #calendar-body {
+        grid-template-columns: repeat(5, 1fr); /* Menos días por fila en pantallas pequeñas */
+    }
+    .container {
+        padding: 15px; /* Menos espacio en móviles */
+    }
+}
+
+/* En tablets, hacer que la grilla del calendario sea un poco más grande */
+@media (max-width: 768px) {
+    #calendar-body {
+        grid-template-columns: repeat(6, 1fr); /* Ajustamos la grilla */
+    }
+    button {
+        font-size: 14px; /* Reducimos un poco el tamaño de fuente */
+    }
+}
